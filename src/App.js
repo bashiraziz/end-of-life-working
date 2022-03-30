@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+
+// styles
+import './App.css'
+
+// pages & components
+//import Dashboard from './pages/dashboard/Dashboard'
+//import Create from './pages/create/Create'
+// import CsvReader from './CsvReader/CsvReader'
+// import Process from './pages/process/Process'
+// import Login from './pages/login/Login'
+// import Pools from './pages/pools/Pools'
+// import Signup from './pages/signup/Signup'
+   import Setup from './pages/setup/Setup'
+   import Navbar from './components/Navbar'
+   import Contacts from './pages/contacts/Contacts';
+// import Reports from './pages/reports/Reports'
+//import Sidebar from './components/Sidebar'
 
 function App() {
   return (
+    
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <div className="container">
+          <Navbar />
+          
+          <Routes>
+            {/* <Route path="/pools" element={<Pools />} />
+            <Route path="/reports" element={<Reports />} />
+            <Route path="/process" element={<Process />} />       
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />}/> */}
+            <Route path="/setup" element={<Setup />}/>
+            <Route path ="/contacts" element={<Contacts />} />
+          </Routes>
+        </div>
+      </Router>
+      
     </div>
   );
 }
 
-export default App;
+export default App

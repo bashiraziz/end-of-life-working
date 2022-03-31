@@ -15,7 +15,7 @@ export default function Navbar() {
         </li>
         <li><Link to="/setup">Setup</Link></li>
         <li><Link to="/process">PlaceHolder</Link></li>
-        <li><Link to="/reports">PlaceHolder</Link></li>
+        <li><Link to="/reports">Reports</Link></li>
         <li><Link to="/login">Login</Link></li>
         <li><Link to="/signup">Signup</Link></li>
         <li>

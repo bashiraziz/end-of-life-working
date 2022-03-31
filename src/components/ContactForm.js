@@ -57,6 +57,26 @@ export default function ContactForm() {
       />
       </label>
       <br></br>
+
+      <label>Contact Type
+      <input 
+        type="text" 
+        name="email" 
+        value={inputs.contactType || ""} 
+        onChange={handleChange}
+      />
+      </label>
+      <br></br>
+
+      <label>Message Type
+      <input 
+        type="text" 
+        name="email" 
+        value={inputs.messageType || ""} 
+        onChange={handleChange}
+      />
+      </label>
+      <br></br>
       <br></br>
         <input type="submit"/>
     </form>

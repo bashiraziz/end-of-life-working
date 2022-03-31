@@ -15,25 +15,39 @@ export default function SidebarSetup() {
           <p>User Name</p>  
         </div>
         <div className="heading">
-          <span>Setup</span>
+          <span></span>
           </div>  
         <nav className="links">
           <ul>
             <li>
-              <NavLink exact to="/contacts">
-                {/* <img src={DashboardIcon} alt="pools icon" /> */}
                 <span>Contacts</span>
-              </NavLink>
+              
               <ul>
+              <NavLink exact to="/contactsTypes">
+                <li>Contact types</li>
+              </NavLink>
+              <NavLink exact to="/addContacts">
                 <li> Add Contact</li>
+              </NavLink>
+              <NavLink exact to="/ListContacts">
                 <li> List Contact</li>
+              </NavLink>
               </ul>
             </li>
             <li>
-              <NavLink to="/create">
-                {/* <img src={AddIcon} alt="add project icon" /> */}
                 <span>Messages</span>
-              </NavLink>
+             
+              <ul>
+                <NavLink exact to="/messageType">
+                <li>Message types</li>
+                </NavLink>
+                <NavLink exact to="/addMessage">
+                <li> Add Message</li>
+                </NavLink>
+                <NavLink exact to="/listContacts">
+                <li> List Messages</li>
+                </NavLink>
+              </ul>
             </li>
           </ul>
         </nav>

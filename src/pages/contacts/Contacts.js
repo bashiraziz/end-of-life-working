@@ -26,7 +26,7 @@ export default function Contacts() {
           <img src={AddIcon} alt="add project icon" />
           <span>A New Contact</span>
           <form onSubmit={handleSubmit}>
-            <button type="submit"> Submit</button>
+            <button type="submit" > Add Contact</button>
           </form>
       </div>
     </div>  

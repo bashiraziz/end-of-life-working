@@ -2,6 +2,12 @@
 text-align:left;
 } */
 
+.flex {
+ display: grid;
+ grid-template-columns: .25fr 1fr 1fr;
+ grid-gap: 20px;
+ border: 4px solid black
+}
 input {
  width: 95%;
  padding: 12px 20px;

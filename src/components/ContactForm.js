@@ -1,6 +1,7 @@
 import './ContactForm.css'
 
 import { useState } from "react";
+import SidebarSetup from './SidebarSetup';
 
 export default function ContactForm() {
   const [inputs, setInputs] = useState({});
@@ -17,6 +18,12 @@ export default function ContactForm() {
   }
 
   return (
+   <>
+    <div className="flex">
+    <div className="flex-child-side">
+        <SidebarSetup />
+      </div>
+    <div className="flex-child">
     <form id="contactForm" onSubmit={handleSubmit}>
       <label>First Name
       <input 
@@ -80,5 +87,8 @@ export default function ContactForm() {
       <br></br>
         <input type="submit"/>
     </form>
+    </div>
+    </div>
+    </>
   )
 }

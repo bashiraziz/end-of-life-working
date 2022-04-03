@@ -11,6 +11,7 @@ import './App.css'
 // import Login from './pages/login/Login'
 // import Pools from './pages/pools/Pools'
 // import Signup from './pages/signup/Signup'
+   import ContactForm from './components/ContactForm'
    import Setup from './pages/setup/Setup'
    import Navbar from './components/Navbar'
    import Contacts from './pages/contacts/Contacts';
@@ -32,6 +33,7 @@ function App() {
             <Route path="/process" element={<Process />} />       
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />}/> */}
+            <Route path="/contactForm" element={<ContactForm />} />
             <Route path="/setup" element={<Setup />}/>
             <Route path ="/contacts" element={<Contacts />} />
           </Routes>

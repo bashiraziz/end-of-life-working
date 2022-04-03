@@ -26,7 +26,7 @@ export default function SidebarSetup() {
               <NavLink exact to="/contactsTypes">
                 <li>Contact types</li>
               </NavLink>
-              <NavLink exact to="/addContacts">
+              <NavLink exact to="/contacts">
                 <li> Add Contact</li>
               </NavLink>
               <NavLink exact to="/ListContacts">

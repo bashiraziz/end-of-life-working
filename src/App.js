@@ -11,10 +11,11 @@ import './App.css'
 // import Login from './pages/login/Login'
 // import Pools from './pages/pools/Pools'
 // import Signup from './pages/signup/Signup'
-   import ContactForm from './components/ContactForm'
+   import ContactForm from './pages/contactForm/ContactForm'
    import Setup from './pages/setup/Setup'
    import Navbar from './components/Navbar'
    import Contacts from './pages/contacts/Contacts';
+   import ListContacts from './pages/listContacts/ListContacts';
 // import Reports from './pages/reports/Reports'
 //import Sidebar from './components/Sidebar'
 
@@ -36,6 +37,7 @@ function App() {
             <Route path="/contactForm" element={<ContactForm />} />
             <Route path="/setup" element={<Setup />}/>
             <Route path ="/contacts" element={<Contacts />} />
+            <Route path="/listContacts" element={<ListContacts />} />
           </Routes>
         </div>
       </Router>

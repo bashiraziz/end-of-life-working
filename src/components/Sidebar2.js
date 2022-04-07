@@ -33,34 +33,7 @@ export default function Sidebar2() {
               </NavLink>
               <NavLink exact to="/contacts">
                 <li>Messages</li>
-              </NavLink>                             
-              {/* <ul>
-              <NavLink exact to="/contactsTypes">
-                <li>Contact types</li>
-              </NavLink>
-              <NavLink exact to="/contacts">
-                <li> Add Contact</li>
-              </NavLink>
-              <NavLink exact to="/ListContacts">
-                <li> List Contact</li>
-              </NavLink>
-              </ul> */}
-            </li>
-            <li>
-                         
-                
-             
-              <ul>
-                <NavLink exact to="/messageType">
-                <li>Message types</li>
-                </NavLink>
-                <NavLink exact to="/addMessage">
-                <li> Add Message</li>
-                </NavLink>
-                <NavLink exact to="/listContacts">
-                <li> List Messages</li>
-                </NavLink>
-              </ul>
+              </NavLink>                               
             </li>
           </ul>
         </nav>

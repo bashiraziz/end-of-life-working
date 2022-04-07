@@ -7,7 +7,7 @@ import SidebarSetup from '../../components/SidebarSetup'
 import './Contacts.css'
 //import AddIcon from '../../assets/add_icon.svg'
 import ContactForm from '../../components/ContactForm'
-export default function Contacts() {
+export default function Dashboard() {
   
   function addContactForm() {
     //Add ContactForm here

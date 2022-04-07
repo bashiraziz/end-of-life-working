@@ -18,38 +18,21 @@ export default function SidebarSetup() {
           <span></span>
           </div>  
         <nav className="links">
-          <ul>
-            <li>
-                <span>Contacts</span>
+        
+                
               
               <ul>
               <NavLink exact to="/contactsTypes">
                 <li>Contact types</li>
               </NavLink>
-              <NavLink exact to="/contacts">
-                <li> Add Contact</li>
-              </NavLink>
-              <NavLink exact to="/ListContacts">
-                <li> List Contact</li>
-              </NavLink>
               </ul>
-            </li>
-            <li>
-                <span>Messages</span>
+            
              
               <ul>
                 <NavLink exact to="/messageType">
                 <li>Message types</li>
                 </NavLink>
-                <NavLink exact to="/addMessage">
-                <li> Add Message</li>
-                </NavLink>
-                <NavLink exact to="/listContacts">
-                <li> List Messages</li>
-                </NavLink>
               </ul>
-            </li>
-          </ul>
         </nav>
       </div>
     </div>

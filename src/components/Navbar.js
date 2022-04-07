@@ -13,6 +13,7 @@ export default function Navbar() {
           <span>Add --&#62; (Icon) --- </span>
           <span>End of Life</span>
         </li>
+        <li><Link to="/dashboard">Dashboard</Link></li>
         <li><Link to="/setup">Setup</Link></li>
         <li><Link to="/process">PlaceHolder</Link></li>
         <li><Link to="/reports">Reports</Link></li>

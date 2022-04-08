@@ -22,7 +22,7 @@ export default function SidebarSetup() {
                 
               
               <ul>
-              <NavLink exact to="/contactsTypes">
+              <NavLink exact to="/contactType">
                 <li>Contact types</li>
               </NavLink>
               </ul>

@@ -16,6 +16,10 @@ import './App.css'
   import Navbar from './components/Navbar'
   import Contacts from './pages/contacts/Contacts';
   import ListContacts from './pages/listContacts/ListContacts';
+  import ContactType from './pages/contactTypes/ContactType'
+  import ListContactTypes from './pages/listContactTypes/ListContactTypes'
+  import ContactTypeForm from './pages/contactTypeForm/ContactTypeForm'
+
 // import Reports from './pages/reports/Reports'
 //import Sidebar from './components/Sidebar'
 
@@ -39,6 +43,9 @@ function App() {
             <Route path="/setup" element={<Setup />}/>
             <Route path ="/contacts" element={<Contacts />} />
             <Route path="/listContacts" element={<ListContacts />} />
+            <Route path ="/contactTypeForm" element={<ContactTypeForm />} />
+            <Route path="/listContactTypes" element={<ListContactTypes />} />
+            <Route path="/contactType" element ={<ContactType />} />
           </Routes>
         </div>
       </Router>

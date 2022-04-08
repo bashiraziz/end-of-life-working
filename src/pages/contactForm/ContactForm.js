@@ -1,5 +1,5 @@
 import './ContactForm.css'
-
+import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import Sidebar2 from '../../components/Sidebar2';
 
@@ -15,6 +15,11 @@ export default function ContactForm() {
   const handleSubmit = (event) => {
     //event.preventDefault();
     //alert(inputs);
+  }
+  const navigate = useNavigate();
+  const handleClickList = () => {
+    navigate('/listContacts') //**Add list page navigation here
+    alert('handleClickList clicked')    
   }
 
   return (
@@ -88,6 +93,10 @@ export default function ContactForm() {
         <input type="submit"/>
     </form>
     </div>
+    <div className="flex-child">
+          
+          <button onClick={handleClickList}class="button button2">List Contacts</button>
+      </div>
     </div>
     </>
   )

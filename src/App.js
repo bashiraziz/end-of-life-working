@@ -9,13 +9,13 @@ import './App.css'
 // import CsvReader from './CsvReader/CsvReader'
 // import Process from './pages/process/Process'
 // import Login from './pages/login/Login'
-// import Pools from './pages/pools/Pools'
 // import Signup from './pages/signup/Signup'
-   import ContactForm from './pages/contactForm/ContactForm'
-   import Setup from './pages/setup/Setup'
-   import Navbar from './components/Navbar'
-   import Contacts from './pages/contacts/Contacts';
-   import ListContacts from './pages/listContacts/ListContacts';
+  import Dashboard from './pages/dashboard/Dashboard' 
+  import ContactForm from './pages/contactForm/ContactForm'
+  import Setup from './pages/setup/Setup'
+  import Navbar from './components/Navbar'
+  import Contacts from './pages/contacts/Contacts';
+  import ListContacts from './pages/listContacts/ListContacts';
 // import Reports from './pages/reports/Reports'
 //import Sidebar from './components/Sidebar'
 
@@ -29,11 +29,12 @@ function App() {
           <Navbar />
           
           <Routes>
-            {/* <Route path="/pools" element={<Pools />} />
+            {/* 
             <Route path="/reports" element={<Reports />} />
             <Route path="/process" element={<Process />} />       
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />}/> */}
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/contactForm" element={<ContactForm />} />
             <Route path="/setup" element={<Setup />}/>
             <Route path ="/contacts" element={<Contacts />} />

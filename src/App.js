@@ -19,6 +19,10 @@ import './App.css'
   import ContactType from './pages/contactTypes/ContactType'
   import ListContactTypes from './pages/listContactTypes/ListContactTypes'
   import ContactTypeForm from './pages/contactTypeForm/ContactTypeForm'
+  import MessageType from './pages/messageTypes/MessageType'
+  import ListMessageTypes from './pages/listMessageTypes/ListMessageTypes'
+  import MessageTypeForm from './pages/messageTypeForm/MessageTypeForm'
+
 
 // import Reports from './pages/reports/Reports'
 //import Sidebar from './components/Sidebar'
@@ -46,6 +50,9 @@ function App() {
             <Route path ="/contactTypeForm" element={<ContactTypeForm />} />
             <Route path="/listContactTypes" element={<ListContactTypes />} />
             <Route path="/contactType" element ={<ContactType />} />
+            <Route path="/listMessageTypes" element={<ListMessageTypes />} />
+            <Route path="/messageType" element={<MessageType />} />
+            <Route path="/messageTypeForm" element={<MessageTypeForm />} />
           </Routes>
         </div>
       </Router>

@@ -1,4 +1,4 @@
-import './ContactTypeForm.css'
+import './MessageTypeForm.css'
 
 import { useState } from "react";
 import SidebarSetup from '../../components/SidebarSetup';
@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 //import Grid from "@material-ui/core/Grid";
 //import { Divider } from '@mui/material';
 
-export default function ContactTypeForm() {
+export default function MessageTypeForm() {
   const [inputs, setInputs] = useState({});
 
   const handleChange = (event) => {
@@ -24,8 +24,8 @@ export default function ContactTypeForm() {
 
   const navigate = useNavigate();
  const handleClickList = () => {
-  navigate('/listContactTypes') //**Add list page navigation here
-  alert('handleClickList clicked')    
+  navigate('/listMessageTypes') //**Add list page navigation here
+  alert('handleClickList clicked on message type form page')    
 }
 
   return (
@@ -37,7 +37,7 @@ export default function ContactTypeForm() {
       
     <div className="flex-child">
     <form id="contactTypeForm" onSubmit={handleSubmit}>
-      <label>Contact Type
+      <label>Message Type
       <input 
         type="text" 
         name="contactName" 
@@ -47,7 +47,7 @@ export default function ContactTypeForm() {
       </label>
       <br></br>
 
-      <label>Contact Type
+      <label>Message
       <input 
         type="text" 
         name="contactName" 
@@ -102,7 +102,7 @@ export default function ContactTypeForm() {
     
     </div>
     <div container justify="flex-end">
-        <Button variant="outlined" size="medium"  onClick={handleClickList} class="button button1">List Contact Types</Button>
+        <Button variant="outlined" size="medium"  onClick={handleClickList} class="button button1">List Message Types</Button>
       </div>
     </div>
     </>

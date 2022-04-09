@@ -3,14 +3,14 @@ import SidebarSetup from '../../components/SidebarSetup';
 import { useNavigate } from 'react-router-dom';
 
 // imports styles
-import './ListContactTypes.css';
+import './ListMessageTypes.css';
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-export default function ListContactTypes () {
+export default function ListMessageTypes () {
  
  const navigate = useNavigate();
  const handleClickList = () => {
-  navigate('/contactTypeForm') //**Add list page navigation here
+  navigate('/messageTypeForm') //**Add list page navigation here
   alert('handleClickList clicked')    
 }
 
@@ -26,10 +26,10 @@ export default function ListContactTypes () {
    <div className="flex-child">
  
     <Grid container justify="flex-end">
-    <Button variant="outlined" size="medium"  onClick={handleClickList} class="button button1">Add a Contact Type</Button>
+    <Button variant="outlined" size="medium"  onClick={handleClickList} class="button button1">Add a Message Type</Button>
     </Grid>
 
-    <h2> List of Contact Types </h2>
+    <h2> List of Message Types </h2>
     
    </div>
    </div>

@@ -18,20 +18,29 @@ export default function SidebarSetup() {
           <span></span>
           </div>  
         <nav className="links">
-        
-                
-              
+                      
               <ul>
               <NavLink exact to="/contactType">
                 <li>Contact types</li>
               </NavLink>
               </ul>
             
-             
               <ul>
                 <NavLink exact to="/messageType">
                 <li>Message types</li>
                 </NavLink>
+              </ul>
+
+              <ul>
+              <NavLink exact to="/trustees">
+                <li>Trustees</li>
+              </NavLink>
+              </ul>
+
+              <ul>
+              <NavLink exact to="/userData">
+                <li>User Data</li>
+              </NavLink>
               </ul>
         </nav>
       </div>

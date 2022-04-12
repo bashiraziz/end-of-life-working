@@ -11,7 +11,7 @@ export default function Navbar() {
         <li className="logo">
           {/* <img src={Temple} alt="dojo logo" /> */}
           <span>Add --&#62; (Icon) --- </span>
-          <span>End of Life</span>
+          <span>End of Journey</span>
         </li>
         <li><Link to="/dashboard">Dashboard</Link></li>
         <li><Link to="/setup">Setup</Link></li>

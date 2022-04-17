@@ -1,24 +1,48 @@
 import './ContactForm.css'
 import { useNavigate } from 'react-router-dom';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Sidebar2 from '../../components/Sidebar2';
-
+import db from '../../firebase'
 export default function ContactForm() {
   
   const [inputs, setInputs] = useState({});
 
   const handleChange = (event) => {
+    //alert(" Inside ofhandleChange")
     const name = event.target.name;
     const value = event.target.value;
     setInputs(values => ({...values, [name]: value}))
+    //alert(inputs.contactFirstName);
   }
 
-  const submit = (event) => {
-    event.preventDefault();
-    alert(inputs);
+  
+  const submit = (e) => {
+    alert("inside of submit");
+    e.preventDefault();
+    db.collection("end-of-journey").add({
+    firstName: inputs.contactFirstName,
+    lastName: inputs.contactLastName,
+    middleInitial: inputs.contactMiddleInitial,
+    email: inputs.contactEmail,
+    mobilePhoneNumber: inputs.contactMobilePhoneNumber,
+    contactType: inputs.contactType,
+    messageType: inputs.contactMessageType,
+    });
+    //alert(inputs.name);
+    //setInputs({});
+  };
 
-    
-  }
+  useEffect(() => {
+    db.collection("end-of-journey").onSnapshot((snapshot) => {
+    setInputs(
+      snapshot.docs.map((doc) => ({
+      id: doc.id,
+      data: doc.data(),
+      }))
+    );
+    });
+  }, []);
+  
   const navigate = useNavigate();
   const handleClickList = () => {
     navigate('/listContacts') //**Add list page navigation here
@@ -42,7 +66,18 @@ export default function ContactForm() {
       />
       </label>
       <br></br>
+      
+      
+      <label>Middle Initial
+      <input 
+        type="text" 
+        name="contactMiddleInitial" 
+        value={inputs.contactMiddleInitial || ""} 
+        onChange={handleChange}
+      />
+      <br></br>
 
+      </label>
       <label>Last Name
       <input 
         type="text" 

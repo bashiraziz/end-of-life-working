@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import Sidebar2 from '../../components/Sidebar2';
 import db from '../../firebase'
+import { options } from '../../components/ContractTypesSelect';
 export default function ContactForm() {
   
   const [inputs, setInputs] = useState({});
@@ -90,7 +91,7 @@ export default function ContactForm() {
       </label>
       <label>Mobile Phone Number
         <input 
-          type="number" 
+          type="tel" 
           name="contactMobilePhoneNumber" 
           value={inputs.contactMobilePhoneNumber || ""} 
           onChange={handleChange}
@@ -100,22 +101,22 @@ export default function ContactForm() {
 
         <label>Email
       <input 
-        type="text" 
+        type="email" 
         name="contactEmail" 
         value={inputs.contactEmail || ""} 
         onChange={handleChange}
       />
       </label>
       <br></br>
-
+  
       <label>Contact Type
-      <input 
-        type="text" 
-        name="contactType" 
-        value={inputs.contactType || ""} 
-        onChange={handleChange}
-      />
-      </label>
+      <select value="banana">
+            {options.map((option) => (
+              <option value={option.value}>{option.label}</option>
+            ))}
+          </select>
+      
+      </label> 
       <br></br>
 
       <label>Message Type

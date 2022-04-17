@@ -4,6 +4,7 @@ import { useState } from "react";
 import Sidebar2 from '../../components/Sidebar2';
 
 export default function ContactForm() {
+  
   const [inputs, setInputs] = useState({});
 
   const handleChange = (event) => {
@@ -12,9 +13,11 @@ export default function ContactForm() {
     setInputs(values => ({...values, [name]: value}))
   }
 
-  const handleSubmit = (event) => {
-    //event.preventDefault();
-    //alert(inputs);
+  const submit = (event) => {
+    event.preventDefault();
+    alert(inputs);
+
+    
   }
   const navigate = useNavigate();
   const handleClickList = () => {
@@ -29,12 +32,12 @@ export default function ContactForm() {
         <Sidebar2 />
       </div>
     <div className="flex-child">
-    <form id="contactForm" onSubmit={handleSubmit}>
+    <form id="contactForm" onSubmit={submit}>
       <label>First Name
       <input 
         type="text" 
-        name="contactName" 
-        value={inputs.contactName || ""} 
+        name="contactFirstName" 
+        value={inputs.contactFirstName || ""} 
         onChange={handleChange}
       />
       </label>
@@ -43,8 +46,8 @@ export default function ContactForm() {
       <label>Last Name
       <input 
         type="text" 
-        name="contactName" 
-        value={inputs.contactName || ""} 
+        name="contactLastName" 
+        value={inputs.contactLastName || ""} 
         onChange={handleChange}
       />
       <br></br>
@@ -53,8 +56,8 @@ export default function ContactForm() {
       <label>Mobile Phone Number
         <input 
           type="number" 
-          name="phone" 
-          value={inputs.phone || ""} 
+          name="contactMobilePhoneNumber" 
+          value={inputs.contactMobilePhoneNumber || ""} 
           onChange={handleChange}
         />
         </label>
@@ -63,8 +66,8 @@ export default function ContactForm() {
         <label>Email
       <input 
         type="text" 
-        name="email" 
-        value={inputs.email || ""} 
+        name="contactEmail" 
+        value={inputs.contactEmail || ""} 
         onChange={handleChange}
       />
       </label>
@@ -73,7 +76,7 @@ export default function ContactForm() {
       <label>Contact Type
       <input 
         type="text" 
-        name="email" 
+        name="contactType" 
         value={inputs.contactType || ""} 
         onChange={handleChange}
       />
@@ -83,8 +86,8 @@ export default function ContactForm() {
       <label>Message Type
       <input 
         type="text" 
-        name="email" 
-        value={inputs.messageType || ""} 
+        name="contactMessageType" 
+        value={inputs.contactMessageType || ""} 
         onChange={handleChange}
       />
       </label>

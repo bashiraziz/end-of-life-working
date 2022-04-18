@@ -3,7 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import Sidebar2 from '../../components/Sidebar2';
 import db from '../../firebase'
-import { options } from '../../components/ContractTypesSelect';
+import { contactTypesSelect } from '../../components/ContractTypesSelect';
+import { messageTypesSelect } from '../../components/MessageTypesSelect';
+
 export default function ContactForm() {
   
   const [inputs, setInputs] = useState({});
@@ -13,7 +15,7 @@ export default function ContactForm() {
     const name = event.target.name;
     const value = event.target.value;
     setInputs(values => ({...values, [name]: value}))
-    //alert(inputs.contactFirstName);
+    //alert(inputs.messageType);
   }
 
   
@@ -27,7 +29,8 @@ export default function ContactForm() {
     email: inputs.contactEmail,
     mobilePhoneNumber: inputs.contactMobilePhoneNumber,
     contactType: inputs.contactType,
-    messageType: inputs.contactMessageType,
+    messageType: inputs.messageType,
+    messageType2: inputs.messageType2
     });
     //alert(inputs.name);
     //setInputs({});
@@ -110,8 +113,8 @@ export default function ContactForm() {
       <br></br>
   
       <label>Contact Type
-      <select value="banana">
-            {options.map((option) => (
+      <select name="contactType" onChange={handleChange}>
+            {contactTypesSelect.map((option) => (
               <option value={option.value}>{option.label}</option>
             ))}
           </select>
@@ -120,16 +123,25 @@ export default function ContactForm() {
       <br></br>
 
       <label>Message Type
+        <select name="messageType" onChange={handleChange}>
+            {messageTypesSelect.map((option) => (
+              <option value={option.value || ""}>{option.label} </option>
+            ))}
+        </select>
+      </label>
+      <br></br>
+      <br></br>
+      <label>MessageType2
       <input 
-        type="text" 
-        name="contactMessageType" 
-        value={inputs.contactMessageType || ""} 
+        type="select" 
+        name="messageType2" 
+        value={inputs.messageType2 || ""} 
         onChange={handleChange}
       />
       </label>
       <br></br>
-      <br></br>
-        <input type="submit"/>
+
+      <input type="submit"/>
     </form>
     </div>
     <div className="flex-child">

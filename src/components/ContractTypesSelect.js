@@ -1,6 +1,8 @@
-import React from "react";
-
-export const options = [
+export const contactTypesSelect = [
+ {
+  label: "<Select a contact type>",
+  value: "Contact Type not selected"
+ },
   {
    label: "One ",
    value: "one"

@@ -1,3 +1,6 @@
+
+//the contact type and the message type fields do not refresh after submit
+//need to look into it
 import './ContactTypeForm.css'
 
 import { useState } from "react";

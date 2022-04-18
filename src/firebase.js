@@ -11,7 +11,8 @@ const firebaseConfig = {
  measurementId: "G-5MPND5M3RH"
 };
 
+// eslint-disable-next-line no-unused-vars
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-  
+
 export default db;

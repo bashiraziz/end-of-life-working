@@ -1,0 +1,5 @@
+4/17/2020
+ The contact type field and the message type fields do not refresh after the form is submitted. 
+ How to make a default selected value in a select field? Will need to look into it.
+
+ Start work on the contact lest view. 

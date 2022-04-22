@@ -35,7 +35,7 @@ export default function ContactForm() {
     //alert(inputs.name);
     //setInputs({});
   };
-
+///**** is this logic needed? Can there be a better option. It clears the form after submit */
   useEffect(() => {
     db.collection("end-of-journey").onSnapshot((snapshot) => {
     setInputs(
@@ -46,6 +46,7 @@ export default function ContactForm() {
     );
     });
   }, []);
+  ///==================================================
   
   const navigate = useNavigate();
   const handleClickList = () => {

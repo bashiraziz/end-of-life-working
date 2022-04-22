@@ -2,4 +2,7 @@
  The contact type field and the message type fields do not refresh after the form is submitted. 
  How to make a default selected value in a select field? Will need to look into it.
 
- Start work on the contact list view. 
+ Start work on the contact list view. started 4/22/2022
+  4/22/2022 Add addContact button to the List Contact Page and add navigation to the add contact Page. Done
+
+  4/22/2022 - Start on Messages Page

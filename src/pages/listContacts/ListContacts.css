@@ -1,12 +1,28 @@
-.flex {
+ .flex {
  display: grid;
- grid-template-columns: .25fr 1fr 1fr;
+ grid-template-columns: .25fr 2fr, .5fr;
  grid-gap: 20px;
  border: 4px solid black
 }
 
 .Button {
  text-align: right;
- 
+}
 
+input {
+ width: 95%;
+ padding: 12px 20px;
+ margin: 8px 0px 10px;
+ box-sizing: border-box;
+
+}
+
+.flex-child {
+
+ border: 2px solid yellow
+}
+
+.flex-child-side {
+
+ border: 2px solid yellowgreen
 }

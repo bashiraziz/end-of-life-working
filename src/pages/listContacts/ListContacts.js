@@ -5,13 +5,14 @@ import { useState, useEffect } from 'react';
 import db from "../../../src/firebase";
 // imports styles
 import './ListContacts.css';
-//import Grid from "@material-ui/core/Grid";
-//import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
+
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 
 
   function ListContacts () {
-    
+
   const [contactList, setContactList] = useState([]);
   const [loading, setLoading] = useState([]);
 
@@ -42,31 +43,46 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
     
   ]
 
+  const navigate = useNavigate();
+  const handleClickAddContact = () => {
+    navigate('/contactForm') //**Add list page navigation here
+    alert('handleClickList clicked')    
+  }
+
   if(loading) {
     return <h1> The data is loading</h1>
    }
   
     return (
+    <>
+    
+    <div className="flex">
+      <div className="flex-child-side">
+        <Sidebar2 />
+      </div>
+        
+      <div className="flex-child-side">
+        <DataGrid
+          rows={contactList}
+          columns={columns}
+          initialState={{
+            sorting: {
+              sortModel: [{ field: 'lastName', sort: 'asc' }],
+            },
+          }}
+          rowsPerPageOptions={[5, 10, 25, 50 , 100]}
+          components={{ Toolbar: GridToolbar }}
+          //pageSize={12}
+        />
+      </div>
+      <div className="flex-child">
+          
+          <Button onClick={handleClickAddContact}class="button button2">Add Contact</Button>
+      </div>
       
-    <div className="App__DataDisplay">
-      
-    <div style={{ height: 700, width: '100%' }}>
-      <DataGrid
-        rows={contactList}
-        columns={columns}
-        initialState={{
-          sorting: {
-            sortModel: [{ field: 'lastName', sort: 'asc' }],
-          },
-        }}
-        rowsPerPageOptions={[5, 10, 25, 50 , 100]}
-        components={{ Toolbar: GridToolbar }}
-        //pageSize={12}
-      />
     </div>
     
-      
-    </div>  
+    </>  
     )
   }
   

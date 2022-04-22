@@ -48,11 +48,11 @@ export default function ContactForm() {
   }, []);
   ///==================================================
   
-  const navigate = useNavigate();
-  const handleClickList = () => {
-    navigate('/listContacts') //**Add list page navigation here
-    alert('handleClickList clicked')    
-  }
+    const navigate = useNavigate();
+    const handleClickList = () => {
+      navigate('/listContacts') //**Add list page navigation here
+      alert('handleClickList clicked')    
+    }
 
   return (
    <>

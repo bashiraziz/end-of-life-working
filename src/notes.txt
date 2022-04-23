@@ -5,4 +5,8 @@
  Start work on the contact list view. started 4/22/2022
   4/22/2022 Add addContact button to the List Contact Page and add navigation to the add contact Page. Done
 
-  4/22/2022 - Start on Messages Page
+  4/22/2022 - Start on:
+                 Add delete and edit contact functionaity to the list contact page.+
+                 
+                 Messages Page
+

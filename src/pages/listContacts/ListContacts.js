@@ -33,7 +33,7 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
     
     //How do we make this dynamic do that a column would be added when a field is added to the database?
   const columns =   [
-    { field: 'lastName', headerName: 'Last Name', width: 200 },
+    { field: 'lastName', editable: true, headerName: 'Last Name', width: 200 },
     { field: 'firstName', headerName: 'FirstName', width: 200 },
     { field: 'middleInitial', headerName: 'MI', width: 50 },
     { field: 'email', headerName: 'Email', width: 200 },
@@ -42,6 +42,7 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
     { field: 'messageType', headerName: 'Message Type', width: 120 },
     
   ]
+  
 
   const navigate = useNavigate();
   const handleClickAddContact = () => {
@@ -65,6 +66,8 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
         <DataGrid
           rows={contactList}
           columns={columns}
+          experimentalFeatures={{ newEditingApi: true }}
+          editMode="row" 
           initialState={{
             sorting: {
               sortModel: [{ field: 'lastName', sort: 'asc' }],

@@ -6,7 +6,7 @@ import db from '../../firebase';
 //import styles
 import Button from '@mui/material/Button';
 import './MessageTypeForm.css'
-import SidebarSetup from '../../components/SidebarSetup';
+//import SidebarSetup from '../../components/SidebarSetup';
 import Sidebar2 from '../../components/Sidebar2';
 
 export default function MessageForm() {

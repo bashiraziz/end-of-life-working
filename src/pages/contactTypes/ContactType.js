@@ -12,10 +12,10 @@ export default function ContactType()  {
    
  }
  
- const handleClickList = () => {
-   navigate('/listContactTypes') //**Add list page navigation here
-   alert('handleClickList clicked')    
- }
+//  const handleClickList = () => {
+//    navigate('/listContactTypes') //**Add list page navigation here
+//    alert('handleClickList clicked')    
+//  }
 
  return (
 

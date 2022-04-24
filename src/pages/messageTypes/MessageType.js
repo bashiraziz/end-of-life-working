@@ -12,10 +12,10 @@ export default function MessageType()  {
    
  }
  
- const handleClickList = () => {
-   navigate('/listMessageTypes') //**Add list page navigation here
-   alert('handleClickList clicked')    
- }
+//  const handleClickList = () => {
+//    navigate('/listMessageTypes') //**Add list page navigation here
+//    alert('handleClickList clicked')    
+//  }
 
  return (
 

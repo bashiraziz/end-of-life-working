@@ -11,11 +11,11 @@ export default function Messages() {
   
   const navigate = useNavigate();
   const handleClickAdd = () => {
-    navigate('/messageForm')   
+    navigate('/messageTypeForm')   
   }
   
   const handleClickList = () => {
-    navigate('/listStandardMessages') //**Add list page navigation here
+    navigate('/listStandardMessages')
     alert('handleClickList clicked')    
   }
 

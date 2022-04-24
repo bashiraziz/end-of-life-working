@@ -37,11 +37,11 @@ export default function ContactForm() {
   };
 ///**** is this logic needed? Can there be a better option. It clears the form after submit */
   useEffect(() => {
-    db.collection("end-of-journey").onSnapshot((snapshot) => {
+    db.collection("contacts").onSnapshot((snapshot) => {
     setInputs(
       snapshot.docs.map((doc) => ({
       id: doc.id,
-      data: doc.data(),
+      ...doc.data(),
       }))
     );
     });
@@ -50,7 +50,7 @@ export default function ContactForm() {
   
     const navigate = useNavigate();
     const handleClickList = () => {
-      navigate('/listContacts') //**Add list page navigation here
+      navigate('/listContacts') 
       alert('handleClickList clicked')    
     }
 

@@ -25,12 +25,8 @@ import './App.css'
   import MessageTypeForm from './pages/messageTypeForm/MessageTypeForm'
   import DigitalAccounts from './pages/digitalAccounts/DigitalAccounts'
   import FinancialAccounts from './pages/financialInstitutes/FinancialInstitutes'
-  import Messages from './pages/messages/Messages'
-  
-  
-
-// import Reports from './pages/reports/Reports'
-//import Sidebar from './components/Sidebar'
+import Messages from './pages/messages/Messages'
+ 
 
 function App() {
   return (
@@ -61,7 +57,7 @@ function App() {
             <Route path="/messageTypeForm" element={<MessageTypeForm />} />
             <Route path="/digitalAccounts" element={<DigitalAccounts />} />
             <Route path="/financialInstitutes" element ={<FinancialAccounts />}/>
-            <Route path = "/messages" element={<Messages />} />
+            <Route path = "/messages" element={<Messages/>} />
           </Routes>
         </div>
       </Router>

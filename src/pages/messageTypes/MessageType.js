@@ -32,8 +32,8 @@ export default function MessageType()  {
                   onClick={handleClickAdd} 
                   class="button button1">
                    Add a Message Type</Button>
-         <Button  onClick={handleClickList}
-                  class="button button2">List Message Types</Button>
+         {/* <Button  onClick={handleClickList}
+                  class="button button2">List Message Types</Button> */}
      </div>
    </div>  
  </>

@@ -17,7 +17,7 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
   const [loading, setLoading] = useState([]);
 
   useEffect(() => {
-    db.collection("end-of-journey").onSnapshot((snapshot) => {
+    db.collection("contacts").onSnapshot((snapshot) => {
      setContactList(
       snapshot.docs.map((doc) => ({
       id: doc.id,

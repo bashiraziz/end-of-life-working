@@ -1,13 +1,15 @@
-import './MessageTypeForm.css'
 
-import { useEffect, useState } from "react";
+//the contact type and the message type fields do not refresh after submit
+//need to look into it
+import './MessageForm.css'
+import { useState } from "react";
+import Sidebar2 from '../../components/Sidebar2';
 import { useNavigate } from 'react-router-dom';
 import db from '../../firebase';
 //import styles
 import Button from '@mui/material/Button';
-import './MessageTypeForm.css'
-import SidebarSetup from '../../components/SidebarSetup';
-import Sidebar2 from '../../components/Sidebar2';
+//import Grid from "@material-ui/core/Grid";
+//import { Divider } from '@mui/material';
 
 export default function MessageForm() {
 
@@ -21,28 +23,22 @@ export default function MessageForm() {
     //alert(inputs.messageType);
   }
 
-  const navigate = useNavigate();
-  const handleMessageTypeList = ()=>{
-
-    navigate('/listStandardMessages') //**Add list page navigation here
-      
-  }
-
-
-
   
   const submit = (e) => {
     alert("inside of submit");
     e.preventDefault();
     db.collection("standardMessages").add({
+    firstName: inputs.contactFirstName,
+    lastName: inputs.contactLastName,
+    middleInitial: inputs.contactMiddleInitial,
+    email: inputs.contactEmail,
+    mobilePhoneNumber: inputs.contactMobilePhoneNumber,
+    contactType: inputs.contactType,
     messageType: inputs.messageType,
-    message: inputs.message,
-    additional1: inputs.additional1,
-    additional2: inputs.additional2,
-    additional3: inputs.additional3,
-    additional4: inputs.additional4,
+    messageType2: inputs.messageType2
     });
     //alert(inputs.name);
+    //setInputs({});
   };
 ///**** is this logic needed? Can there be a better option. It clears the form after submit */
   useEffect(() => {
@@ -50,7 +46,7 @@ export default function MessageForm() {
     setInputs(
       snapshot.docs.map((doc) => ({
       id: doc.id,
-      ...doc.data(),
+      data: doc.data(),
       }))
     );
     });
@@ -60,31 +56,31 @@ export default function MessageForm() {
    <>
     <div className="flex">
     <div className="flex-child-side">
-        <Sidebar2 />
+        <SidebarSetup />
       </div>
       
     <div className="flex-child">
-    <form id="" onSubmit={submit}>
-      <label>Message Type
+    <form id="" onSubmit={handleSubmit}>
+      <label>Contact Type
       <input 
         type="text" 
-        name="messageType" 
-        value={inputs.messageType || ""} 
+        name="contactName" 
+        value={inputs.contactName || ""} 
         onChange={handleChange}
       />
       </label>
       <br></br>
 
-      <label>Message
+      <label>Contact Type
       <input 
         type="text" 
-        name="message" 
-        value={inputs.message || ""} 
+        name="contactName" 
+        value={inputs.contactName || ""} 
         onChange={handleChange}
       />
-      </label>
       <br></br>
 
+      </label>
       <label>Additional Field One
         <input 
           type="number" 
@@ -130,7 +126,7 @@ export default function MessageForm() {
     
     </div>
     <div container justify="flex-end">
-        <Button variant="outlined" size="medium"  onClick={handleMessageTypeList} class="button button1">List Message Types</Button>
+        <Button variant="outlined" size="medium"  onClick={handleClickList} class="button button1">List Contact Types</Button>
       </div>
     </div>
     </>

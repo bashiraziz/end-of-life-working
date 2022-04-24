@@ -32,8 +32,8 @@ export default function ContactType()  {
                   onClick={handleClickAdd} 
                   class="button button1">
                    Add a Contact Type</Button>
-         <Button  onClick={handleClickList}
-                  class="button button2">List Contact Types</Button>
+         {/* <Button  onClick={handleClickList}
+                  class="button button2">List Contact Types</Button> */}
      </div>
    </div>  
  </>

@@ -43,7 +43,7 @@ function App() {
             <Route path="/process" element={<Process />} />       
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />}/> */}
-            <Route path="/" element={<ContactForm />} /> 
+            <Route path="/" element={<Contacts />} /> 
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/contactForm" element={<ContactForm />} />
             <Route path="/setup" element={<Setup />}/>

@@ -3,9 +3,10 @@ import Sidebar2 from '../../components/Sidebar2'
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import db from "../../../src/firebase";
+
 // imports styles
 import './ListContacts.css';
-import Grid from "@material-ui/core/Grid";
+//import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
@@ -47,7 +48,7 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
   const navigate = useNavigate();
   const handleClickAddContact = () => {
     navigate('/contactForm') //**Add list page navigation here
-    alert('handleClickList clicked')    
+   
   }
 
   if(loading) {

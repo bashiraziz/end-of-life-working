@@ -22,7 +22,7 @@ export default function ContactForm() {
   const submit = (e) => {
     alert("inside of submit");
     e.preventDefault();
-    db.collection("end-of-journey").add({
+    db.collection("contacts").add({
     firstName: inputs.contactFirstName,
     lastName: inputs.contactLastName,
     middleInitial: inputs.contactMiddleInitial,
@@ -132,7 +132,7 @@ export default function ContactForm() {
       </label>
       <br></br>
       <br></br>
-      <label>MessageType2
+      <label>Custom Message
       <input 
         type="select" 
         name="messageType2" 

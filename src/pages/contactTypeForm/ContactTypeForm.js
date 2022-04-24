@@ -2,7 +2,6 @@
 //the contact type and the message type fields do not refresh after submit
 //need to look into it
 import './ContactTypeForm.css'
-
 import { useState } from "react";
 import SidebarSetup from '../../components/SidebarSetup';
 import { useNavigate } from 'react-router-dom';
@@ -27,7 +26,7 @@ export default function ContactTypeForm() {
 
   const navigate = useNavigate();
  const handleClickList = () => {
-  navigate('/listContactTypes') //**Add list page navigation here
+  navigate('/listContactTypes') // list page navigation here
   alert('handleClickList clicked')    
 }
 

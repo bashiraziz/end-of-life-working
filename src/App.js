@@ -23,7 +23,11 @@ import './App.css'
   import MessageType from './pages/messageTypes/MessageType'
   import ListMessageTypes from './pages/listMessageTypes/ListMessageTypes'
   import MessageTypeForm from './pages/messageTypeForm/MessageTypeForm'
-
+  import DigitalAccounts from './pages/digitalAccounts/DigitalAccounts'
+  import FinancialAccounts from './pages/financialInstitutes/FinancialInstitutes'
+  import Messages from './pages/messages/Messages'
+  
+  
 
 // import Reports from './pages/reports/Reports'
 //import Sidebar from './components/Sidebar'
@@ -55,6 +59,9 @@ function App() {
             <Route path="/listMessageTypes" element={<ListMessageTypes />} />
             <Route path="/messageType" element={<MessageType />} />
             <Route path="/messageTypeForm" element={<MessageTypeForm />} />
+            <Route path="/digitalAccounts" element={<DigitalAccounts />} />
+            <Route path="/financialInstitutes" element ={<FinancialAccounts />}/>
+            <Route path = "/messages" element={<Messages />} />
           </Routes>
         </div>
       </Router>

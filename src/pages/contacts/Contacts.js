@@ -35,7 +35,9 @@ export default function Contacts() {
                   onClick={handleClickAdd} 
                   class="button button1">
                     Add a Contact</Button>
-          <button onClick={handleClickList}class="button button2">List Contacts</button>
+          <Button onClick={handleClickList}
+                  class="button button2">
+                    List Contacts</Button>
       </div>
     </div>  
   </>

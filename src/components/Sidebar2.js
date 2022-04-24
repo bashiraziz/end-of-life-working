@@ -25,14 +25,14 @@ export default function Sidebar2() {
                 <NavLink exact to="/contacts">
                 <li>Contacts</li>
               </NavLink>
-              <NavLink exact to="/contacts">
+              <NavLink exact to="/financialInstitutes">
                 <li>Financial Institutes</li>
               </NavLink>              
-              <NavLink exact to="/contacts">
+              <NavLink exact to="/digitalAccounts">
                 <li>Digital Accounts</li>
               </NavLink>
-              <NavLink exact to="/contacts">
-                <li>Messages</li>
+              <NavLink exact to="/messages">
+                <li>Standard Messages</li>
               </NavLink>                               
             </li>
           </ul>

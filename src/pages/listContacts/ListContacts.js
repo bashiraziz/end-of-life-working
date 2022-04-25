@@ -11,7 +11,7 @@ import Button from "@material-ui/core/Button";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { DataGrid, GridToolbar, GridActionsCellItem } from "@mui/x-data-grid";
-
+import AddIcon from '@mui/icons-material/Add';
 
   function ListContacts () {
 
@@ -72,13 +72,19 @@ import { DataGrid, GridToolbar, GridActionsCellItem } from "@mui/x-data-grid";
   
     return (
     <>
-    
+
     <div className="flex">
       <div className="flex-child-side">
+ 
         <Sidebar2 />
       </div>
         
       <div className="flex-child-side">
+      
+      <Button color="primary" startIcon={<AddIcon />} onClick={handleClickAddContact}>
+        Add Contact
+      </Button>
+
         <DataGrid
           rows={contactList}
           columns={columns}

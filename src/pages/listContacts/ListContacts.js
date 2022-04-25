@@ -41,10 +41,11 @@ import { DataGrid, GridToolbar, GridActionsCellItem } from "@mui/x-data-grid";
     {
       field: 'actions',
       type: 'actions',
+      headerName: 'Action',
       width: 100,
       getActions: () => [
-        <GridActionsCellItem icon={<EditIcon />} label="Edit" />,
         <GridActionsCellItem icon={<DeleteIcon />} label="Delete" />,
+        <GridActionsCellItem icon={<EditIcon />} label="Edit" />,
       ],
     },
     { field: 'edit', headerName:'Edit' },

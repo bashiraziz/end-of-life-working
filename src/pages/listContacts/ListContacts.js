@@ -9,14 +9,16 @@ import './ListContacts.css';
 //import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import EditIcon from '@mui/icons-material/Edit';
-import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+import DeleteIcon from '@mui/icons-material/Delete';
+import { DataGrid, GridToolbar, GridActionsCellItem } from "@mui/x-data-grid";
 
 
   function ListContacts () {
 
   const [contactList, setContactList] = useState([]);
   const [loading, setLoading] = useState([]);
-
+  const handleChange = () =>{alert('Alert me')}
+  const handleChange2 = () =>{alert('Alert me')}
   useEffect(() => {
     db.collection("contacts").onSnapshot((snapshot) => {
      setContactList(
@@ -36,7 +38,15 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
     
     //How do we make this dynamic do that a column would be added when a field is added to the database?
   const columns =   [
-    { field: 'delete', headerName:'Delete' },
+    {
+      field: 'actions',
+      type: 'actions',
+      width: 100,
+      getActions: () => [
+        <GridActionsCellItem icon={<EditIcon />} label="Edit" />,
+        <GridActionsCellItem icon={<DeleteIcon />} label="Delete" />,
+      ],
+    },
     { field: 'edit', headerName:'Edit' },
     { field: 'lastName', editable: true, headerName: 'Last Name', width: 200 },
     { field: 'firstName', headerName: 'FirstName', width: 200 },

@@ -8,7 +8,7 @@ import db from "../../../src/firebase";
 import './ListContacts.css';
 //import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-
+import EditIcon from '@mui/icons-material/Edit';
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 
 
@@ -22,6 +22,8 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
      setContactList(
       snapshot.docs.map((doc) => ({
       id: doc.id,
+      delete: 'Delete',
+      edit: 'Edit',
       ...doc.data(),
       }))
      );
@@ -34,6 +36,8 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
     
     //How do we make this dynamic do that a column would be added when a field is added to the database?
   const columns =   [
+    { field: 'delete', headerName:'Delete' },
+    { field: 'edit', headerName:'Edit' },
     { field: 'lastName', editable: true, headerName: 'Last Name', width: 200 },
     { field: 'firstName', headerName: 'FirstName', width: 200 },
     { field: 'middleInitial', headerName: 'MI', width: 50 },

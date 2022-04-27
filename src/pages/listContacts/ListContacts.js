@@ -10,13 +10,17 @@ import './ListContacts.css';
 import Button from "@material-ui/core/Button";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { DataGrid, GridToolbar, GridActionsCellItem } from "@mui/x-data-grid";
+import SaveIcon from '@mui/icons-material/Save';
+import { DataGrid, GridToolbar, GridActionsCellItem, } from "@mui/x-data-grid";
 import AddIcon from '@mui/icons-material/Add';
 
   function ListContacts () {
 
   const [contactList, setContactList] = useState([]);
   const [loading, setLoading] = useState([]);
+  const [notEditable, setNotEditable] = useState('null');
+  //alert(notEditable)  
+  
   const handleChange = () =>{alert('Alert me')}
   const handleChange2 = () =>{alert('Alert me')}
   useEffect(() => {
@@ -45,12 +49,16 @@ import AddIcon from '@mui/icons-material/Add';
       width: 100,
       getActions: () => [
         <GridActionsCellItem icon={<DeleteIcon />} label="Delete" />,
-        <GridActionsCellItem icon={<EditIcon />} label="Edit" />,
+        <GridActionsCellItem icon={<SaveIcon />} label="Save" />,
+        <GridActionsCellItem icon={<EditIcon />} label="Edit"
+          onClick={()=> setNotEditable('row')}  
+                 
+          />,
       ],
     },
     { field: 'edit', headerName:'Edit' },
     { field: 'lastName', editable: true, headerName: 'Last Name', width: 200 },
-    { field: 'firstName', headerName: 'FirstName', width: 200 },
+    { field: 'firstName', editable: true, headerName: 'FirstName', width: 200 },
     { field: 'middleInitial', headerName: 'MI', width: 50 },
     { field: 'email', headerName: 'Email', width: 200 },
     { field: 'mobilePhoneNumber', headerName: 'Phone Number - Mobile', width: 200 },
@@ -89,7 +97,7 @@ import AddIcon from '@mui/icons-material/Add';
           rows={contactList}
           columns={columns}
           experimentalFeatures={{ newEditingApi: true }}
-          editMode="row" 
+          editMode={notEditable} 
           initialState={{
             sorting: {
               sortModel: [{ field: 'lastName', sort: 'asc' }],

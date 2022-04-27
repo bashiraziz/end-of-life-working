@@ -3,6 +3,7 @@ import Sidebar2 from '../../components/Sidebar2'
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import db from "../../../src/firebase";
+import PropTypes from 'prop-types';
 
 // imports styles
 import './ListContacts.css';
@@ -11,10 +12,63 @@ import Button from "@material-ui/core/Button";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SaveIcon from '@mui/icons-material/Save';
-import { DataGrid, GridToolbar, GridActionsCellItem, } from "@mui/x-data-grid";
+import { DataGrid, GridToolbar, GridActionsCellItem, useGridApiContext, } from "@mui/x-data-grid";
 import AddIcon from '@mui/icons-material/Add';
+import { Box } from '@mui/material';
 
-  function ListContacts () {
+function EditToolbar(props) {
+  const apiRef = useGridApiContext();
+  const { selectedCellParams, setSelectedCellParams } = props;
+
+  const handleClick = async () => {
+    if (!selectedCellParams) {
+      return;
+    }
+    const { id, field, cellMode } = selectedCellParams;
+    if (cellMode === 'edit') {
+      apiRef.current.stopCellEditMode({ id, field });
+      setSelectedCellParams({ ...selectedCellParams, cellMode: 'view' });
+    } else {
+      apiRef.current.startCellEditMode({ id, field });
+      setSelectedCellParams({ ...selectedCellParams, cellMode: 'edit' });
+    }
+  };
+
+  const handleMouseDown = (event) => {
+    // Keep the focus in the cell
+    event.preventDefault();
+  };
+
+  return (
+    <Box
+      sx={{
+        justifyContent: 'center',
+        display: 'flex',
+        borderBottom: 1,
+        borderColor: 'divider',
+      }}
+    >
+      <Button
+        onClick={handleClick}
+        onMouseDown={handleMouseDown}
+        disabled={!selectedCellParams}
+        color="primary"
+      >
+        {selectedCellParams?.cellMode === 'edit' ? 'Save' : 'Edit'}
+      </Button>
+    </Box>
+  );
+}
+
+EditToolbar.propTypes = {
+  selectedCellParams: PropTypes.any,
+  setSelectedCellParams: PropTypes.func.isRequired,
+};
+
+
+
+
+  export default function ListContacts () {
 
   const [contactList, setContactList] = useState([]);
   const [loading, setLoading] = useState([]);
@@ -41,19 +95,26 @@ import AddIcon from '@mui/icons-material/Add';
     //console.log(contactList)
     
     //How do we make this dynamic do that a column would be added when a field is added to the database?
-  const columns =   [
+    const [selectedEdit, setSelectedEdit] = useState('primary')
+    const [selectedSave, setSelectedSave ]= useState('disabled  ')
+    const columns =   [
     {
       field: 'actions',
       type: 'actions',
       headerName: 'Action',
       width: 100,
+      
       getActions: () => [
         <GridActionsCellItem icon={<DeleteIcon />} label="Delete" />,
-        <GridActionsCellItem icon={<SaveIcon />} label="Save" />,
-        <GridActionsCellItem icon={<EditIcon />} label="Edit"
-          onClick={()=> setNotEditable('row')}  
-                 
-          />,
+        <GridActionsCellItem icon={<SaveIcon color={selectedSave} />} label="Save"
+          onClick={()=> { setNotEditable('null'); 
+                          setSelectedEdit('primary');
+                          setSelectedSave('disabled')} } />,
+        <GridActionsCellItem icon={<EditIcon color={selectedEdit} />} label="Edit"
+          onClick={()=> { setNotEditable('row'); 
+                          setSelectedEdit('disabled');
+                          setSelectedSave('primary') }
+        }  />,
       ],
     },
     { field: 'edit', headerName:'Edit' },
@@ -121,7 +182,7 @@ import AddIcon from '@mui/icons-material/Add';
   
   
   
-  export default ListContacts;
+  
   
 
  

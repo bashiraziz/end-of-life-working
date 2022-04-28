@@ -3,7 +3,6 @@ import Sidebar2 from '../../components/Sidebar2'
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import db from "../../../src/firebase";
-import PropTypes from 'prop-types';
 
 // imports styles
 import './ListContacts.css';
@@ -12,61 +11,11 @@ import Button from "@material-ui/core/Button";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SaveIcon from '@mui/icons-material/Save';
-import { DataGrid, GridToolbar, GridActionsCellItem, useGridApiContext, } from "@mui/x-data-grid";
+import { DataGrid, GridToolbar, GridActionsCellItem, GridCloseIcon } from "@mui/x-data-grid";
 import AddIcon from '@mui/icons-material/Add';
-import { Box } from '@mui/material';
-
-function EditToolbar(props) {
-  const apiRef = useGridApiContext();
-  const { selectedCellParams, setSelectedCellParams } = props;
-
-  const handleClick = async () => {
-    if (!selectedCellParams) {
-      return;
-    }
-    const { id, field, cellMode } = selectedCellParams;
-    if (cellMode === 'edit') {
-      apiRef.current.stopCellEditMode({ id, field });
-      setSelectedCellParams({ ...selectedCellParams, cellMode: 'view' });
-    } else {
-      apiRef.current.startCellEditMode({ id, field });
-      setSelectedCellParams({ ...selectedCellParams, cellMode: 'edit' });
-    }
-  };
-
-  const handleMouseDown = (event) => {
-    // Keep the focus in the cell
-    event.preventDefault();
-  };
-
-  return (
-    <Box
-      sx={{
-        justifyContent: 'center',
-        display: 'flex',
-        borderBottom: 1,
-        borderColor: 'divider',
-      }}
-    >
-      <Button
-        onClick={handleClick}
-        onMouseDown={handleMouseDown}
-        disabled={!selectedCellParams}
-        color="primary"
-      >
-        {selectedCellParams?.cellMode === 'edit' ? 'Save' : 'Edit'}
-      </Button>
-    </Box>
-  );
-}
-
-EditToolbar.propTypes = {
-  selectedCellParams: PropTypes.any,
-  setSelectedCellParams: PropTypes.func.isRequired,
-};
-
-
-
+import { createTheme } from '@mui/system';
+import {purple} from '@material-ui/core/colors';
+import { ThemeProvider } from '@material-ui/core';
 
   export default function ListContacts () {
 
@@ -74,16 +23,22 @@ EditToolbar.propTypes = {
   const [loading, setLoading] = useState([]);
   const [notEditable, setNotEditable] = useState('null');
   //alert(notEditable)  
+
+  const theme = createTheme({
+    palette: {
+      warning: purple[900],
+      
+    },
+  });
   
-  const handleChange = () =>{alert('Alert me')}
-  const handleChange2 = () =>{alert('Alert me')}
+  
   useEffect(() => {
     db.collection("contacts").onSnapshot((snapshot) => {
      setContactList(
       snapshot.docs.map((doc) => ({
       id: doc.id,
-      delete: 'Delete',
-      edit: 'Edit',
+      // delete: 'Delete',
+      // edit: 'Edit',
       ...doc.data(),
       }))
      );
@@ -95,35 +50,54 @@ EditToolbar.propTypes = {
     //console.log(contactList)
     
     //How do we make this dynamic do that a column would be added when a field is added to the database?
+    
     const [selectedEdit, setSelectedEdit] = useState('primary')
-    const [selectedSave, setSelectedSave ]= useState('disabled  ')
+    const [selectedSave, setSelectedSave ]= useState('disabled')
+    const [cancel, setCancel] = useState('disabled')
+    const [selectDelete, setSelectDelete] = useState('warning')
+    
     const columns =   [
     {
       field: 'actions',
       type: 'actions',
       headerName: 'Action',
-      width: 100,
+      width: 150,
       
       getActions: () => [
-        <GridActionsCellItem icon={<DeleteIcon />} label="Delete" />,
-        <GridActionsCellItem icon={<SaveIcon color={selectedSave} />} label="Save"
+       
+        <ThemeProvider theme={theme}>
+        <GridActionsCellItem   icon={<DeleteIcon  color={selectDelete} /> }  />
+        </ThemeProvider> ,
+        <GridActionsCellItem icon={<SaveIcon color={selectedSave} />}
           onClick={()=> { setNotEditable('null'); 
                           setSelectedEdit('primary');
-                          setSelectedSave('disabled')} } />,
-        <GridActionsCellItem icon={<EditIcon color={selectedEdit} />} label="Edit"
+                          setSelectedSave('disabled');
+                          setCancel('disabled');
+                          setSelectDelete('warning');
+                        } } />,
+        <GridActionsCellItem icon={<GridCloseIcon  color={cancel}/> }
+          onClick={()=> { setSelectedEdit('primary');
+                          setCancel('disable');
+                          setSelectedSave('disabled');
+                          setSelectDelete('warning');
+                        }
+                      }  />,
+        <GridActionsCellItem icon={<EditIcon color={selectedEdit} />}
           onClick={()=> { setNotEditable('row'); 
                           setSelectedEdit('disabled');
-                          setSelectedSave('primary') }
-        }  />,
+                          setSelectedSave('primary');
+                          setCancel('warning');
+                          setSelectDelete('disabled') 
+                        }
+                      }  />,
       ],
     },
-    { field: 'edit', headerName:'Edit' },
-    { field: 'lastName', editable: true, headerName: 'Last Name', width: 200 },
-    { field: 'firstName', editable: true, headerName: 'FirstName', width: 200 },
+    { field: 'lastName', editable: true, headerName: 'Last Name', width: 150 },
+    { field: 'firstName', editable: true, headerName: 'FirstName', width: 150 },
     { field: 'middleInitial', headerName: 'MI', width: 50 },
     { field: 'email', headerName: 'Email', width: 200 },
-    { field: 'mobilePhoneNumber', headerName: 'Phone Number - Mobile', width: 200 },
-    { field: 'contactType', headerName: 'Contact Type', width: 110 },
+    { field: 'mobilePhoneNumber', headerName: 'Phone Number - Mobile', width: 175 },
+    { field: 'contactType', headerName: 'Contact Type', width: 100 },
     { field: 'messageType', headerName: 'Message Type', width: 120 },
     
   ]
@@ -144,11 +118,10 @@ EditToolbar.propTypes = {
 
     <div className="flex">
       <div className="flex-child-side">
- 
         <Sidebar2 />
       </div>
         
-      <div className="flex-child-side">
+      <div className="flex-child-side" style={{width:'100%'}}>
       
       <Button color="primary" startIcon={<AddIcon />} onClick={handleClickAddContact}>
         Add Contact
@@ -166,13 +139,13 @@ EditToolbar.propTypes = {
           }}
           rowsPerPageOptions={[5, 10, 25, 50 , 100]}
           components={{ Toolbar: GridToolbar }}
-          //pageSize={12}
+          pageSize={12}
         />
       </div>
-      <div className="flex-child">
+      {/* <div className="flex-child">
           
           <Button onClick={handleClickAddContact}class="button button2">Add Contact</Button>
-      </div>
+      </div> */}
       
     </div>
     
@@ -180,9 +153,3 @@ EditToolbar.propTypes = {
     )
   }
   
-  
-  
-  
-  
-
- 

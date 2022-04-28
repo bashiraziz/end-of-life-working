@@ -8,3 +8,6 @@
   4/22/2022 - Start on:
                  Add delete and edit contact functionaity to the list contact page.
 
+4/27/2022 - Completed setting up the edit and save icons
+4/27/2022 - next work on setting up the delete icon.
+            then start the functionality to post to Firestore the results of edit and delete of rows. 

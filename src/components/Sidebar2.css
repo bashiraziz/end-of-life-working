@@ -25,11 +25,16 @@ ul {
  padding: 0;
 }
 
+.linksChild {
+ margin-top: 20px;
+ margin-left: -30px;
+}
+
 .sidebar .links {
  margin-top: 20px;
  margin-left: 34px;
 }
-.sidebar .links li {
+.sidebar .links  {
  margin-top: 10px;
 }
 .sidebar .links a {

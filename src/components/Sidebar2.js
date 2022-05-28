@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"
 
 // styles & images
-import "./SidebarSetup.css"
+import "./Sidebar2.css"
 // import DashboardIcon from '../assets/dashboard_icon.svg'
 // import AddIcon from '../assets/add_icon.svg'
 
@@ -25,8 +25,19 @@ export default function Sidebar2() {
                 <NavLink exact to="/contacts">
                 <li>Contacts</li>
               </NavLink>
-              <NavLink exact to="/financialInstitutes">
-                <li>Financial Institutes</li>
+              <NavLink exact to="/financial">
+                <li>Financial</li>
+                  <nav className="linksChild">
+                    <ul>
+                      <li>Banking</li>
+                      <li>Invetments</li>
+                      <li>Insurance</li>
+                      <li>Other Assets</li>
+                      <li>Debts Owed to Us</li>
+                      <li>Credit Cards</li>
+                      <li>Debts we Owe</li>
+                    </ul>
+                  </nav>
               </NavLink>              
               <NavLink exact to="/digitalAccounts">
                 <li>Digital Accounts</li>

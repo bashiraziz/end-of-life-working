@@ -26,6 +26,7 @@ import './App.css'
   import DigitalAccounts from './pages/digitalAccounts/DigitalAccounts'
   import FinancialAccounts from './pages/financialInstitutes/FinancialInstitutes'
 import Messages from './pages/messages/Messages'
+import Financial from './pages/financial/Financial'
  
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
             <Route path="/digitalAccounts" element={<DigitalAccounts />} />
             <Route path="/financialInstitutes" element ={<FinancialAccounts />}/>
             <Route path = "/messages" element={<Messages/>} />
+            <Route path = "/financial" element={<Financial/>} />
           </Routes>
         </div>
       </Router>

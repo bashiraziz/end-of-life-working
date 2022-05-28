@@ -1,8 +1,10 @@
 //import styles
 import Sidebar2 from '../../components/Sidebar2'
-import './FinancialInstitutes.css'
+import './Financial.css'
 
-export default function FinancialAccounts() {
+//import Styles
+
+export default function Financial() {
 
  return(
   <>
@@ -11,7 +13,7 @@ export default function FinancialAccounts() {
    <Sidebar2 />
    </div>
   <div>
-  <h2> This is Financial Institutes page</h2>
+  <h2> This is the Financial Page</h2>
   </div>
   </div>
   </>

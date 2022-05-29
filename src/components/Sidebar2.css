@@ -26,20 +26,25 @@ ul {
 }
 
 .linksChild {
- margin-top: 20px;
- margin-left: -30px;
+ display: flex;
+ margin-top: 0px;
+ margin-left: 20px
+}
+
+.linksChild a {
+ display: flex;
+ margin-top: 0px;
+ color: var(--text-color);
 }
 
 .sidebar .links {
  margin-top: 20px;
  margin-left: 34px;
 }
-.sidebar .links  {
- margin-top: 10px;
-}
-.sidebar .links a {
+
+.sidebar .links  a {
  display: flex;
- padding: 10px;
+ padding: 20px;
  text-decoration: none;
  width: 100%;
  color: var(--text-color);

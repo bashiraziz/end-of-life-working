@@ -11,24 +11,25 @@ import './App.css'
 // import Process from './pages/process/Process'
 // import Login from './pages/login/Login'
 // import Signup from './pages/signup/Signup'
-  import Dashboard from './pages/dashboard/Dashboard' 
-  import ContactForm from './pages/contactForm/ContactForm'
-  import Setup from './pages/setup/Setup'
-  import Navbar from './components/Navbar'
-  import Contacts from './pages/contacts/Contacts';
-  import ListContacts from './pages/listContacts/ListContacts';
-  import ContactType from './pages/contactTypes/ContactType'
-  import ListContactTypes from './pages/listContactTypes/ListContactTypes'
-  import ContactTypeForm from './pages/contactTypeForm/ContactTypeForm'
-  import MessageType from './pages/messageTypes/MessageType'
-  import ListMessageTypes from './pages/listMessageTypes/ListMessageTypes'
-  import MessageTypeForm from './pages/messageTypeForm/MessageTypeForm'
-  import DigitalAccounts from './pages/digitalAccounts/DigitalAccounts'
-  import FinancialAccounts from './pages/financialInstitutes/FinancialInstitutes'
+import Dashboard from './pages/dashboard/Dashboard' 
+import ContactForm from './pages/contactForm/ContactForm'
+import Setup from './pages/setup/Setup'
+import Navbar from './components/Navbar'
+import Contacts from './pages/contacts/Contacts';
+import ListContacts from './pages/listContacts/ListContacts';
+import ContactType from './pages/contactTypes/ContactType'
+import ListContactTypes from './pages/listContactTypes/ListContactTypes'
+import ContactTypeForm from './pages/contactTypeForm/ContactTypeForm'
+import MessageType from './pages/messageTypes/MessageType'
+import ListMessageTypes from './pages/listMessageTypes/ListMessageTypes'
+import MessageTypeForm from './pages/messageTypeForm/MessageTypeForm'
+import DigitalAccounts from './pages/digitalAccounts/DigitalAccounts'
+import FinancialAccounts from './pages/financialInstitutes/FinancialInstitutes'
 import Messages from './pages/messages/Messages'
-import Financial from './pages/financial/Financial'
+//import Financial from './pages/financial/Financial'
+import BankList from './pages/financial/BankList'
+import BankForm from './pages/financial/BankForm'
  
-
 function App() {
   return (
     
@@ -59,7 +60,9 @@ function App() {
             <Route path="/digitalAccounts" element={<DigitalAccounts />} />
             <Route path="/financialInstitutes" element ={<FinancialAccounts />}/>
             <Route path = "/messages" element={<Messages/>} />
-            <Route path = "/financial" element={<Financial/>} />
+            <Route path = "/financial" element={<BankList/>} />
+            <Route path = "/banking" element={<BankList/>} />
+            <Route path ="/bankForm" element={<BankForm />} />
           </Routes>
         </div>
       </Router>

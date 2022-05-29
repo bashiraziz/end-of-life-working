@@ -19,26 +19,39 @@ export default function Sidebar2() {
           </div>  
         <nav className="links">
           <ul>
-            <li>
-                
-                {/* <span>Contacts</span> */}
+                <li>
                 <NavLink exact to="/contacts">
                 <li>Contacts</li>
               </NavLink>
               <NavLink exact to="/financial">
                 <li>Financial</li>
+                </NavLink>  
                   <nav className="linksChild">
                     <ul>
-                      <li>Banking</li>
-                      <li>Invetments</li>
-                      <li>Insurance</li>
-                      <li>Other Assets</li>
-                      <li>Debts Owed to Us</li>
-                      <li>Credit Cards</li>
-                      <li>Debts we Owe</li>
+                      <NavLink exact to ="/banking">
+                        <li>Banking</li>
+                      </NavLink>
+                      <NavLink exact to ="/investments">
+                        <li>Investments</li>
+                      </NavLink>
+                      <NavLink exact to ="/insurance">
+                        <li>Insurance</li>
+                      </NavLink>
+                      <NavLink exact to ="/other-assets">
+                        <li>Other Assets</li>
+                      </NavLink>
+                      <NavLink exact to ="/debts-owed-to-us">
+                        <li>Debts Owed to Us</li>
+                      </NavLink>
+                      <NavLink exact to ="/credit-cards">
+                        <li>Credit Cards</li>
+                      </NavLink>
+                      <NavLink exact to ="/debts-we-owe">
+                        <li>Debts we Owe</li>
+                      </NavLink>
                     </ul>
                   </nav>
-              </NavLink>              
+                          
               <NavLink exact to="/digitalAccounts">
                 <li>Digital Accounts</li>
               </NavLink>

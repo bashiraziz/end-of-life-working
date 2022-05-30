@@ -108,10 +108,10 @@ export default function BankForm() {
       </label>
       <br></br>
   
-      <label>URL
+      <label>Bank URL
       <input 
-        type="select" 
-        name="URL" 
+        type="url" 
+        name="bankURL" 
         value={inputs.bankURL || ""} 
         onChange={handleChange}
       />
